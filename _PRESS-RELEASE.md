@@ -18,27 +18,44 @@ Once the project moves into development, the press release can be used as a touc
  
 ## Heading ##
   > Name the product in a way the reader (i.e. your target customers) will understand.
+  Can't Decide on What to Eat
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
 
+  This app is for people who could use help deciding on what to eat. 
+
 ## Summary ##
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
+
+  Can't Decide on What to Eat will help you decide on what to have for your next meal. It will suggest ideas through enticing images and give you a list of eateries around you.
 
 ## Problem ##
   > Describe the problem your product solves.
 
+  There are times when people cannot decide on what to eat.  
+
 ## Solution ##
   > Describe how your product elegantly solves the problem.
+
+  Can't Decide on What to Eat will serve up images randomly to give you ideas for your next meal then suggest eateries based on your decision. 
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
 
+  "Can't Decide on What to Eat is a steadfast way of coming up with ideas on what to eat."
+
 ## How to Get Started ##
   > Describe how easy it is to get started.
+
+  It's easy, all that you'd need to do is click a button and we'll generate a random meal idea.
 
 ## Customer Quote ##
   > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
 
+  "I couldn't decide on what to eat so I used Can't Decide on What to Eat to pick a meal for me. It's really easy to use and saved me so much time."
+
 ## Closing and Call to Action ##
   > Wrap it up and give pointers where the reader should go next.
+
+  Bookmark our site or download our app and we'll help you with some ideas for your next meal.
