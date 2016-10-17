@@ -6,11 +6,20 @@
 </head>
 <body>
 	<h1>Can't Decide on What to Eat</h1>
+
 	<button>Pick</button>
 	<!-- Use action to tell the browser where to navigate to -->
 	<form action="/cuisinetypes" method="POST">
 		<input type="text" name="name">
 		<button type="submit">Find me something</button>
 	</form>
+	
+	<ul class="cuisinetypes">
+	  <% for(var i=0; i<cuisinetypes.length; i++) {%>
+	    <li class="cuisine">
+	      <span><%= cuisinetypes[i].name %></span>
+	    </li>
+	  <% } %>
+	</ul>
 </body>
 </html>
