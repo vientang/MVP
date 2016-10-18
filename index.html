@@ -3,14 +3,34 @@
 <head>
 	<meta charset="utf-8">
 	<title>Can't Decide on What to Eat</title>
+	<style type="text/css">
+		body {
+			background-color: #FF6347;
+			font-family: "Helvetica Neue", sans-serif;
+			color: white;
+			letter-spacing: 1.25px;			
+		}
+		h1 {
+			text-align: center;
+		}
+	</style>
 </head>
 <body>
 	<h1>Can't Decide on What to Eat</h1>
-	<button>Pick</button>
+	<!-- <button>Pick</button> -->
 	<!-- Use action to tell the browser where to navigate to -->
-	<form action="/cuisinetypes" method="POST">
+	<form action="/mealideas" method="POST">
 		<input type="text" name="name">
+		<input type="text" name="idea">
 		<button type="submit">Find me something</button>
 	</form>
+
+	<div>
+		<h2>Not feeling this. Give me something else</h2>
+		<button id='update'>Update</button>
+	</div>
+
+	<script type="text/javascript" src="public/app.js"></script>
+	<script type="text/javascript" src="jquery.js"></script>
 </body>
 </html>
