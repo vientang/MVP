@@ -16,6 +16,9 @@
 		ul {
 			list-style: none;
 		}
+		#foodcategory {
+			color: darkgrey;
+		}
 	</style>
 </head>
 <body>
@@ -29,8 +32,22 @@
 	</form>
 	
 	<div class="mealideas">
-	  	<% var randomIndex = Math.floor(Math.random() * mealideas.length); %>	    
-	    <span><%= mealideas[randomIndex].idea %></span>	    
+		<% var suggestives = [ ["How about", "I'd suggest", "Today is a good day for", "What a great day for", "Bobby Flay might suggest", "Aren't you craving"], ["sounds like a good idea", "always hit the spot", "is tasty, especially when you're indecisive", "might go against your diet but it'll go with your appetite"] ]%>	
+
+		<% var random0Phrase = Math.floor(Math.random() * suggestives[0].length); %>
+		<% var random1Phrase = Math.floor(Math.random() * suggestives[1].length); %>	
+		<% var randomSuggestive = Math.round(Math.random() * suggestives.length); %>	 
+  	<% var randomIndex = Math.floor(Math.random() * mealideas.length); %>
+
+  	<% if (randomSuggestive === 0) {%>	    
+  		<span><%= suggestives[0][random0Phrase] %></span>	
+  		<span id='foodcategory'><%= mealideas[randomIndex].idea %></span>	  
+    	<span>food</span>	 
+  	<%} else {%>
+	    <span id='foodcategory'><%= mealideas[randomIndex].idea %></span>	  
+	    <span>food</span>	    
+	    <span><%= suggestives[1][random1Phrase] %></span>	
+	  <%} %>
 	</div>
 
 <!-- 	<div>

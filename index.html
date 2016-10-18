@@ -13,24 +13,32 @@
 		h1 {
 			text-align: center;
 		}
+		ul {
+			list-style: none;
+		}
 	</style>
 </head>
 <body>
 	<h1>Can't Decide on What to Eat</h1>
-	<!-- <button>Pick</button> -->
-	<!-- Use action to tell the browser where to navigate to -->
-	<form action="/mealideas" method="POST">
-		<input type="text" name="name">
-		<input type="text" name="idea">
-		<button type="submit">Find me something</button>
-	</form>
 
-	<div>
-		<h2>Not feeling this. Give me something else</h2>
-		<button id='update'>Update</button>
+	<!-- Use action to tell the browser where to navigate to -->
+	<form action="/findAnother">
+<!-- 		<input type="text" name="name">
+		<input type="text" name="idea"> -->
+		<button type="submit">Find me something else</button>
+	</form>
+	
+	<div class="mealideas">
+	  	<% var randomIndex = Math.floor(Math.random() * mealideas.length); %>	    
+	    <span><%= mealideas[randomIndex].idea %></span>	    
 	</div>
 
-	<script type="text/javascript" src="public/app.js"></script>
-	<script type="text/javascript" src="jquery.js"></script>
+<!-- 	<div>
+		<h2>Not feeling this. Give me something else</h2>
+		<button id='update'>Update</button>
+	</div> -->
+
+<!-- 	<script type="text/javascript" src="public/app.js"></script>
+	<script type="text/javascript" src="jquery.js"></script> -->
 </body>
 </html>
