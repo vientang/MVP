@@ -20,6 +20,15 @@
 		form {
 			text-align: center;
 		}
+		button {
+			background-color: red;
+			color: white;
+			border: none;
+			margin-top: 10px;
+			border-radius: 5px;
+			font-size: 18px;
+			letter-spacing: 1.15px;
+		}
 		#foodcategory {
 			color: red;
 			font-size: 50px;
@@ -35,6 +44,7 @@
 			margin: 0 auto;
 		}
 	</style>
+	
 </head>
 <body>
 	<h1>Can't Decide on What to Eat</h1>
@@ -68,9 +78,9 @@
 
 		<!-- Use action to tell the browser where to navigate to -->
 	<form action="/findAnother">
-<!-- 		<input type="text" name="name">
-		<input type="text" name="idea"> -->
-		<button type="submit">Find me something else</button>
+		<% var buttonNames = ["I'm not in the mood for this", "That's gross", "Find me something else", "No way!", "Not feeling this", "Really? There's gotta be something else", "What da?", "I'd rather eat starfish", "Next"]; %>
+		<% var randomButtonIndex = Math.floor(Math.random() * buttonNames.length); %>
+		<button type="submit"><%= buttonNames[randomButtonIndex] %> </button>
 	</form>
 
 	<script type="text/javascript">
@@ -81,8 +91,7 @@
 				  'height=\"450\" ' +
 				  'frameborder=\"0\" style=\"border:0\" ' +
 				  'src=\"https://www.google.com/maps/embed/v1/' + 'place?key=AIzaSyDJjicrJ9hT2N9DwZWog7WdC1ms27exn6M&q='+ '<%=randomMeal%>' + '+food' +',San+Francisco+CA\" ' + 'allowfullscreen>' +
-					'</iframe>'
-				)
+					'</iframe>')
 		  });
 	</script>
 </body>

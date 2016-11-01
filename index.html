@@ -3,11 +3,12 @@
 <head>
 	<meta charset="utf-8">
 	<title>Can't Decide on What to Eat</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<style type="text/css">
 		body {
-			background-color: #FF6347;
+			background-color: white;
 			font-family: "Helvetica Neue", sans-serif;
-			color: white;
+			color: #2f2f30;
 			letter-spacing: 1.25px;			
 		}
 		h1 {
@@ -16,29 +17,85 @@
 		ul {
 			list-style: none;
 		}
+		form {
+			text-align: center;
+		}
+		button {
+			background-color: red;
+			color: white;
+			border: none;
+			margin-top: 10px;
+			border-radius: 5px;
+			font-size: 18px;
+			letter-spacing: 1.15px;
+		}
+		#foodcategory {
+			color: red;
+			font-size: 50px;
+		}
+		.phrase {
+			text-align: center;
+		}
+		#imagebox {
+			margin: 0 auto;
+		}
+		iframe {
+			display: block;
+			margin: 0 auto;
+		}
 	</style>
+	
 </head>
 <body>
 	<h1>Can't Decide on What to Eat</h1>
-
-	<!-- Use action to tell the browser where to navigate to -->
-	<form action="/findAnother">
-<!-- 		<input type="text" name="name">
-		<input type="text" name="idea"> -->
-		<button type="submit">Find me something else</button>
-	</form>
 	
 	<div class="mealideas">
-	  	<% var randomIndex = Math.floor(Math.random() * mealideas.length); %>	    
-	    <span><%= mealideas[randomIndex].idea %></span>	    
+		<% var suggestives = [ ["How about", "I'd suggest", "Today is a good day for", "What a great day for", "Bobby Flay might suggest", "Aren't you craving"], ["sounds like a good idea", "always hit the spot", "is tasty, especially when you're indecisive", "might go against your diet but it'll go with your appetite"] ]%>	
+
+		<% var random0Phrase = Math.floor(Math.random() * suggestives[0].length); %>
+		<% var random1Phrase = Math.floor(Math.random() * suggestives[1].length); %>	
+		<% var randomSuggestive = Math.round(Math.random() * suggestives.length); %>	 
+  	<% var randomIndex = Math.floor(Math.random() * mealideas.length); %>
+
+  	<% if (randomSuggestive === 0) {%>
+  	<div class="phrase">
+  		<span><%= suggestives[0][random0Phrase] %></span>	
+  		<span id='foodcategory'><%= mealideas[randomIndex].idea %></span>	  
+    	<span>food</span>	 
+  	</div>	    
+  	<%} else {%>
+  	<div class="phrase">
+	    <span id='foodcategory'><%= mealideas[randomIndex].idea %></span>	  
+	    <span>food</span>	    
+	    <span><%= suggestives[1][random1Phrase] %></span>	
+  	</div>
+	  <%} %>
+
+	  <div id="imagebox">
+	  	<% var randomMeal = mealideas[randomIndex].idea; %>
+    </div>
 	</div>
 
-<!-- 	<div>
-		<h2>Not feeling this. Give me something else</h2>
-		<button id='update'>Update</button>
-	</div> -->
+		<!-- Use action to tell the browser where to navigate to -->
+	<form action="/findAnother">
+		<% var buttonNames = ["I'm not in the mood for this", "That's gross", "Find me something else", "No way!", "Not feeling this", "Really? There's gotta be something else", "What da?", "I'd rather eat starfish", "Next"]; %>
+		<% var randomButtonIndex = Math.floor(Math.random() * buttonNames.length); %>
+<!-- 		<input type="text" name="name">
+		<input type="text" name="idea"> -->
+		<button type="submit"><%= buttonNames[randomButtonIndex] %> </button>
+	</form>
 
-<!-- 	<script type="text/javascript" src="public/app.js"></script>
-	<script type="text/javascript" src="jquery.js"></script> -->
+	<script type="text/javascript">
+		  $(document).ready(function(){	
+		  	$('#imagebox').append(
+				  '<iframe ' +
+				  'width=\"600\" ' +
+				  'height=\"450\" ' +
+				  'frameborder=\"0\" style=\"border:0\" ' +
+				  'src=\"https://www.google.com/maps/embed/v1/' + 'place?key=AIzaSyDJjicrJ9hT2N9DwZWog7WdC1ms27exn6M&q='+ '<%=randomMeal%>' + '+food' +',San+Francisco+CA\" ' + 'allowfullscreen>' +
+					'</iframe>'
+				)
+		  });
+	</script>
 </body>
 </html>
